@@ -24,7 +24,7 @@ puis
 npm install
 ```
 
-la première commande installe express.js, la seconde install les librairies nécessaires (dependencies) pour faire fonctionner les programme.
+La première commande installe express.js, la seconde install les librairies nécessaires (dependencies) pour faire fonctionner les programme.
 
 Si la db est correctement installée, on peut lancer l'application avec la commande suivante :
 
@@ -32,12 +32,12 @@ Si la db est correctement installée, on peut lancer l'application avec la comma
 nodemon start
 ```
 
-l'application est visible sur un navigateur à l'adresse : http://localhost:3000
+L'application est visible sur un navigateur à l'adresse : http://localhost:3000
 
-pour explorer l'API via le navigateur, veuillez consulter le chapitre 4.3. du mémoire.
+Pour explorer l'API via le navigateur, veuillez consulter le chapitre 4.3. du mémoire.
 
 # Qui ?
 
-L'ensemble du code tp-viz a été produit par l'auteur du mémoire (Renato Diaz)
+L'ensemble du code tp-viz a été produit par l'auteur du mémoire (Renato Diaz). N'hésitez pas à forker et n'oubliez pas d'ajouter une étoile ⭐️ ;)
 
-contact renato.diaz@outlook.com
+Contact renato.diaz@outlook.com
