@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet", href="/fonts/MyFontsWebfontsKit.css")
+    script(src='https://d3js.org/d3.v5.min.js')
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+    script(src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js")
+    link(href="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css", rel="stylesheet")
+  body
+    block content
+    .content
+      include header
+      include module1_global
+      include module2_global
+      //include viz
+      //block script 
+      //  script(src="javascripts/sandbox.js")
+
+      

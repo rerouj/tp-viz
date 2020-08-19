@@ -1,0 +1,49 @@
+- var li = "http://localhost:3000/#2"
+block global
+    .frame
+        .margin_left
+        .frame_content
+            a(id="1")
+                h1(class="global_title") 
+                    |1. 
+                    | Les 
+                    b lieux
+            include ../public/texts/location_text_intro.html
+            .illustration_1
+                img(src="images/apptp-schema.png", alt="lieux")
+                p Illustration 1. L'entité "Location"
+            .margin
+            a(id='2')
+                h2(class="global_sub_title")
+                    | 1.1. Table : Nombre des reportages et décompte des différents type de lieux présents dans le corpus.
+
+            include ../public/texts/table_doc_location(1).html
+            .margin
+            div(class="insight_bar")
+                div
+                    h1=show_count
+                    p nombre de reportages
+                div
+                    h1=location_count
+                    p nombre de lieux
+                div
+                    h1=country_count
+                    p nombre de pays
+                div
+                    h1=locality_count
+                    p nombre de villes
+            .margin
+            include legend
+            .margin
+            a(id='3')
+                h2(class="global_sub_title")
+                    | 1.2. Outil : Carte des lieux recensés dans le corpus
+
+            include ../public/texts/carte_location(2).html
+            .margin
+            #map
+            .margin
+            include map_legend
+        .notes
+        block script 
+            script(src="javascripts/world_map.js")

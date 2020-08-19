@@ -1,0 +1,24 @@
+{
+  "name": "tpviz",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "compile:sass": "node-sass public/scss/style.scss public/stylesheets/style.css -w"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jstransformer-markdown-it": "^2.1.0",
+    "mongodb": "^3.5.5",
+    "mongoose": "^5.9.7",
+    "morgan": "~1.9.1",
+    "pug": "2.0.0-beta11"
+  },
+  "devDependencies": {
+    "node-sass": "^4.13.1",
+    "nodemon": "^2.0.2"
+  }
+}
