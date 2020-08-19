@@ -1,3 +1,8 @@
+// Code de la cartographie : Cartographie des lieux recensés dans le corpus numérique des émissions de Temps Présent. 
+// Cette cartographie est écrit en D3.js et avec l'API Mapboxgl. 
+// Les résultats sont commentés dans le mémoire sous le chapitre 5.1.
+
+
 mapboxgl.accessToken = 'pk.eyJ1IjoicmVyb3VqIiwiYSI6ImNrOWNqZDVneTA1ZnMzbm5rbTc3YXYwb28ifQ.zBj42crqv1VAq50SAs6buQ'
 
 d3.json('http://localhost:3000/location/geo_json')

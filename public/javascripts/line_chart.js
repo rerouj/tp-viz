@@ -1,3 +1,7 @@
+// Code du calculateur de tendance. 
+// Ce calculateur est écrit en D3.js. 
+// Les résultats sont commenté dans le mémoire sous le chapitre 5.2.
+
 var frame = d3.select('.frame_content').node();
 var container_width = frame.getBoundingClientRect().width;
 var container_height = 600;
@@ -10,7 +14,7 @@ var margin = {
     right: 20
 }
 
-//search bar
+//bar de recherche
 var button = d3.select(".search_bar")
             .append("button")
             .attr("class", "add_place_button")
@@ -26,13 +30,13 @@ var selected_value = d3.select(".search_bar")
 .attr("class", "add_place_input")
 .text("ok")
 
-// chart
+// graphique
 var container = d3.select(".line_chart").append("svg")
             .attr("preserveAspectRatio", "xMinYMin meet")
             .attr('viewBox', [0, 0, container_width, container_height])
             .attr("id", "container");
 
-// axis
+// axes
 var x_axis_scale = d3.scaleTime()
             .domain([new Date(1969, 1, 1), new Date(2014, 31, 12)])
             .range([0+margin.left, container_width-margin.right])
@@ -63,7 +67,7 @@ function handleMouseOver(d, i) {
     });
 }
 
-// interaction
+// interractions
 
 clear_button.on("click", function(e){
     d3.select('.line_group').selectAll('*').remove();

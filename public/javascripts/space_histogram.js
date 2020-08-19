@@ -1,3 +1,8 @@
+// Code de l'histogramme : classement des espaces (nationaux et internationaux) selon le nombre d'occurrences dans le corpus. 
+// Cet histogramme est écrit en D3.js. 
+// Les résultats sont commentés dans le mémoire sous le chapitre 5.4.
+
+
 d3.json('http://localhost:3000/space/top10')
 .then((data, err)=>{
     var frame = d3.select('.histogram').node();

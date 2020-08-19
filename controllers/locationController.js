@@ -22,7 +22,11 @@ exports.insight = function(req, res){
         })
     }
 }
-// Display locations.
+/**
+ * Middleware qui renvoie les données rattachées à un nom de lieu
+ * default : Lausanne
+ * returns : obj()
+ */
 exports.location_list = function(req, res) {
     var name = req.params.name;
     if(name){
@@ -47,7 +51,6 @@ exports.location_count = (req, res, next)=>{
         next()
     })
 }
-
 exports.locality_count = (req, res, next)=>{
     Location.countDocuments({"geo_data.types": "locality"}, (err, count)=>{
         if(err) return next(err);
@@ -62,6 +65,10 @@ exports.country_count = (req, res, next)=>{
         next()
     })
 }
+/**
+ * Middleware qui calcule le nombre d'occurences d'un nom de lieux par année dans le corpus
+ * returns : obj()
+ */
 
 exports.location_total_per_year = (req, res, next)=>{
     Show.find({},{"publicationDate": 1})
@@ -83,6 +90,12 @@ exports.location_total_per_year = (req, res, next)=>{
         next()
     })
 }
+
+/**
+ * Middleware qui gère les données renvoyées à la visualisation de données "trend"
+ * returns : obj()
+ */
+
 exports.location_trend = (req, res, next)=>{
     location = req.params.place.toUpperCase()
     Location.findOne({'archive_name': location})
@@ -143,8 +156,12 @@ exports.location_trend = (req, res, next)=>{
         }) 
     })
 }
+/**
+ * Middleware qui formate les données de la collection location vers un document geojson
+ * returns : geojson obj()
+ */
 
-exports.geo_json = (req, res, next)=>{
+ exports.geo_json = (req, res, next)=>{
     var place = req.params.place;
     var geo_json_array = [];
     if (place){
@@ -153,10 +170,8 @@ exports.geo_json = (req, res, next)=>{
         Location.find()
         .populate('show_id.mongo_id', 'title publicationDate mediaURL imageURL')
         .then(docs=>{
-            //console.log(docs)
             docs.forEach(doc=>{
                 var show_info = doc.show_id.map(x => {
-                    //console.log(x)
                     return {
                         title: x.mongo_id.title,
                         publicationDate: x.mongo_id.publicationDate,

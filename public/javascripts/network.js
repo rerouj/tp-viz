@@ -1,3 +1,7 @@
+// Code de l'analyse de réseau. 
+// Cette visualisation est écrite en D3.js. 
+// Les résultats sont commenté dans le mémoire sous le chapitre 5.3.
+
 var frame = d3.select('.frame_content').node();
 var container_width = frame.getBoundingClientRect().width;
 var container_height = 600;
