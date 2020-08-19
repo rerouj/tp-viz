@@ -10,10 +10,10 @@ Toutes la méthode concernant cette interphace est abordée dans le mémoire au 
 
 tp-viz est une application express.js. Elle tourne actuellement sur une version 12.16.1 de Node.js. Pour installer l'application, il faut :
 
-1. Installer la base de donnée *apptp-db*, voir : https://github.com/rerouj/apptp-db.
+1. Installer la base de données *apptp-db*, voir : https://github.com/rerouj/apptp-db.
 1. Télécharger et installer localement node.js : https://nodejs.org/en/download/
 2. Télécharger le dossier Github tp-viz et le déployer dans un dossier local
-3. Depuis un fenêtre de Terminal atteindre le dossier qui contient l'application. Depuis le dossier lancer
+3. Depuis une fenêtre de Terminal atteindre le dossier qui contient l'application. Depuis le dossier, lancer :
 
 ```javascript
 npm install express
