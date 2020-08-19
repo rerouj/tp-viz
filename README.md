@@ -1,4 +1,4 @@
-# Projet *tp-viz* : API et visualisations de données
+# Projet *tpviz* : API et visualisations de données
 
 Dans ce dossier se trouve le code qui a servi a produire l'interface de programmation et les visualisations de données qui ont servi dans le cadre du travail de mémoire **La couverture géographique des reportages de Temps Présent : apport des archives numériques et des visualisations de données à une histoire des magazines de grands reportages**. Ce projet porte le nom de code tpviz.
 
