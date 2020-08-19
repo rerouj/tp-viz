@@ -65,7 +65,6 @@ exports.country_count = (req, res, next)=>{
 
 exports.location_total_per_year = (req, res, next)=>{
     Show.find({},{"publicationDate": 1})
-    //.populate("show_id.mongo_id", "title publicationDate")
     .then((docs)=>{
         year_laps = [...Array(2021).keys()].slice(1969,)
         year_obj = {}
@@ -89,7 +88,6 @@ exports.location_trend = (req, res, next)=>{
     Location.findOne({'archive_name': location})
     .then((doc)=>{
         //get country name
-        //todo handle errors
         return doc.geo_data[0].address_components.find((obj)=>{
             return obj.types[0] == 'country'
         })
@@ -121,7 +119,6 @@ exports.location_trend = (req, res, next)=>{
                 tmp_res = tmp_res.reduce((x, y)=> x.concat(y), [])
                 tmp_res = tmp_res.map(x => x.mongo_id._id)
                 tmp_res = Array.from(new Set(tmp_res))
-                //console.log(tmp_res);
 
                 // prepare trend temporary object
                 tmp_obj = {};
@@ -167,7 +164,6 @@ exports.geo_json = (req, res, next)=>{
                         imageURL: x.mongo_id.imageURL,
                     }
                 })
-                //console.log(show_info)
                 tmp = {
                     "type": "Feature",
                     "geometry": {
@@ -189,50 +185,3 @@ exports.geo_json = (req, res, next)=>{
         })
     }
 }
-
-//exports.test1 = (req, res, next)=>{
-//    Location.countDocuments()
-//        .then((err, data)=>{
-//            return data
-//        })
-//        .then((data)=>{
-//            Location.countDocuments({"geo_data.types": "locality"})
-//            .then((data2)=>{
-//                res.render('viz', {
-//                    title: data,
-//                    title2: data2
-//                  });
-//            })
-//        }).catch(next)
-//}
-
-//exports.test1 = (req, res, next)=>{
-//    Location.countDocuments({}, (err, count)=>{
-//        if(err) return next(err);
-//        req.data = count
-//        next()
-//    })
-//}
-//exports.test2 = (req, res, next)=>{
-//    Location.countDocuments({"geo_data.types": "locality"}, (err, count)=>{
-//        if(err) return next(err);
-//        res.render('viz', {
-//          title: req.data,
-//          title2: count
-//        });
-//    })
-//}
-
-//exports.test1 = Location.countDocuments({}, (err, count)=>{
-//        if(err) return next(err);
-//        return({'location_count': count})
-//    })
-//exports.test2 = Location.countDocuments({"geo_data.types": "locality"}, (err, count)=>{
-//    if(err) return next(err);
-//    return({'city_count': count});
-//})
-//.exec((err, docs)=>{
-//    if(err) return next(err);
-//    count_country = docs.length
-//    return({'country_count': count_country})
-//    })

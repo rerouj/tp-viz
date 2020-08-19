@@ -31,8 +31,6 @@ exports.country_average = (req, res, next)=>{
                     var country_obj = loc.location.geo_data[0].address_components.find((item)=>{
                         return item.types[0] == 'country'
                     })
-                    //console.log(country_obj)
-                    //obj_array.push(country_obj.long_name)
                     if(country_obj != undefined) obj_array.push(country_obj.long_name)
                     obj_array = Array.from(new Set(obj_array))
                 })
@@ -43,20 +41,6 @@ exports.country_average = (req, res, next)=>{
             req.country_average = average;
             next()
         }) 
-
-    //Space.find()
-    //    .then((docs)=>{
-    //        var sygma = 0;
-    //        var count = docs.length
-    //        docs.forEach((item, index)=>{
-    //            if (item.country_space.length >= 1){
-    //                sygma += item.country_space.length
-    //            }
-    //        })
-    //        req.country_average = sygma/count
-    //        req.country_average
-    //        next()
-    //    })
 }
 
 exports.average_country_distance = (req, res, next)=>{
@@ -163,12 +147,6 @@ exports.get_space_by_name = (req, res, next)=>{
                         return item.long_name !== country_str;
                     })
                     if(international_res_a && international_res_b) var international_res = true
-
-                    //international_res = country_array.some((item) => {
-                    //    return item.long_name === country_str;
-                    //})
-                    //international_res_bool = country_array.map(item => item.long_name === country_str)
-                    //if(international_res_bool.every(Boolean)) international_res = false
                 }
     
             }else{

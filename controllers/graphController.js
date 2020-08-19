@@ -64,11 +64,6 @@ exports.graph = function(req, res, next){
                         };
                     })
                 })
-                //nodes.forEach((e, i)=>{
-                //    if (weight_list[i] != undefined){
-                //        e['weight'] = weight_list[i]
-                //    }
-                //})
 
                 var links_keys = {};
                 links.forEach((link)=>{
@@ -80,7 +75,7 @@ exports.graph = function(req, res, next){
                 links.forEach((link)=>{
                     link['weight'] = links_keys[link.source+'-'+link.target];
                 })
-                //console.log(links_keys);
+
                 nodes = nodes.filter(e=>{
                     return e.weight > 0;
                 })

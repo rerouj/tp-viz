@@ -14,18 +14,6 @@ var md = require('markdown-it')();
 var app = express(),
     db = require('./db/db');
 
-//const mongoose = require('mongoose');
-//mongoose.connect('mongodb://localhost:27017/apptp-db', {useNewUrlParser: true, useUnifiedTopology: true});
-//
-//const Location = mongoose.model('Locations', { archive_name: String }, 'locations_dep');
-//
-//const mars = new Location({ archive_name: 'Mars' });
-//mars.save().then(() => console.log('mars saved'))
-//test = Location.findOne({archive_name: 'ABIDJAN'},'archive_name alias', (err, docs)=>{
-//  console.log(err, docs)
-//});
-//var t = 100;
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');

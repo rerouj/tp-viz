@@ -210,19 +210,12 @@ container.on('mouseover', (e)=>{
     p.on("mousemove", (r)=>{
         var x = document.getElementById("container").getBoundingClientRect().x;
         var y = document.getElementById("container").getBoundingClientRect().y - margin.top;
-        // console.log("x,y svg pos")
-        // console.log(x, y);
-        // console.log("d3 mouse pos")
-        // console.log(d3.event.pageX, d3.event.pageY);
-        // console.log("mouse pose js")
-        // console.log(event.clientX, event.clientY)
         var data = [{
             "x": event.clientX - (document.getElementById("container").getBoundingClientRect().x+30),
             "y": event.clientY - 180,
             "label": r.label
         }]
-        // console.log("data mouse pose")
-        // console.log(data[0].x, data[0].y)
+
         var text = text_groupe.selectAll("text")
             .data(data)
         text
@@ -240,96 +233,3 @@ container.on('mouseover', (e)=>{
         text_groupe.select("text").remove()
     })
 })
-
-
-/* old verion
-var width = 800;
-var height = 500;
-
-let margin = ({top: 20, right: 30, bottom: 30, left: 30})
-var barHeight = 20;
-var barWidth = width / 2
-
-var lineData = [ { "x": 0, "y": 500}, { "x": 800,  "y": 0}];
-
-var xscale = d3.scaleTime()
-    .domain([new Date(1970, 1, 1), new Date(2019, 31, 12)])
-    .range([0, 800]);
-
-var lineFunction = d3.line()   
-    .x(function(d) { return d.x; })
-    .y(function(d) { return d.y; })
-
-//The SVG Container
-var svg = d3.select(".line_chart").append("svg")
-    .attr("width", width+margin.left+margin.right)
-    .attr("height", height+margin.top+margin.bottom)
-    //.attr("transform", `translate(0, ${margin.top})`)
-
-//append line
-var lineGraph = svg.append("path")
-    .attr("d", lineFunction(lineData))
-    .attr("transform", `translate(${margin.left}, ${margin.top})`)
-    .attr("stroke", "green")
-    .attr("stroke-width", 2)
-    .attr("fill", "none");
-
-//append axis
-var yaxis = d3.scaleLinear()
-    .domain([100, 0])
-    .range([0, 500])
-var xaxis = d3.axisBottom(xscale)
-    .tickFormat(d3.timeFormat("%Y"))
-    .ticks(10)
-
-svg.append("g")
-    .attr("transform", `translate(${margin.left}, ${height+margin.top})`)
-    .call(xaxis);
-
-svg.append("g")
-    .attr("transform", `translate(${margin.left}, ${margin.top})`)
-    .call(d3.axisLeft(yaxis))
-
-// interactions
-$(document).ready(function() {
-
-    $(".add_place_button").click(()=>{
-
-        var pastille = document.createElement("div");
-        //var pastille_coll = document.createElement("tr")
-        //var pastille_cell1 = document.createElement("td")
-        //var pastille_cell2 = document.createElement("td")
-        //var pastille_table = document.createElement("table")
-        pastille.setAttribute("class", "clear_search_value")
-    
-        pastille.innerText = $('.add_place_input').val()
-
-        //pastille_coll.appendChild(pastille_cell2)
-        //pastille_cell1.innerText = "x"
-        //pastille_coll.appendChild(pastille_cell1)
-        //pastille_table.appendChild(pastille_coll)
-        //pastille.appendChild(pastille_table)
-    
-        $(".location_searched").height(50)
-        $(".location_searched").append(pastille);
-        lineData2 = [{ "x": 0, "y": 500}, {"x": 200, "y": 100}, { "x": 800,  "y": 0}]
-    
-        console.log(lineData)
-        svg.append("path")
-        .attr("d", lineFunction(lineData2))
-        .attr("transform", `translate(${margin.left}, ${margin.top})`)
-        .attr("stroke", "red")
-        .attr("stroke-width", 2)
-        .attr("fill", "none");
-
-        $(".clear_search_value").on("click", (e)=>{
-            console.log(this)
-            $(e.target).remove()
-            //$(this).remove()
-        })
-    })
-    $(".clear_all_button").click(()=>{
-        $(".location_searched").empty()
-    })
-})
-*/

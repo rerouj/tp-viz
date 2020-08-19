@@ -1,4 +1,3 @@
-//Import the mongoose module
 var mongoose = require('mongoose');
 
 //Set up default mongoose connection
@@ -10,22 +9,22 @@ mongoose.connect(mongoDB, {
     });
 
 // CONNECTION EVENTS
-// When successfully connected
+// on success
 mongoose.connection.on('connected', function () {
     console.log('Mongoose default connection open to ' + mongoDB);
   }); 
     
-// If the connection throws an error
+// on error
 mongoose.connection.on('error',function (err) { 
     console.log('Mongoose default connection error: ' + err);
     }); 
 
-// When the connection is disconnected
+// on disconnection
 mongoose.connection.on('disconnected', function () { 
     console.log('Mongoose default connection disconnected'); 
     });
 
-// If the Node process ends, close the Mongoose connection 
+// if process ends 
 process.on('SIGINT', function() {   
     mongoose.connection.close(function () { 
         console.log('Mongoose default connection disconnected through app termination'); 

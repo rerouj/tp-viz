@@ -106,15 +106,4 @@ d3.json('http://localhost:3000/space/top10')
     graph.append('g')
         .attr('transform', `translate(${margin.left - 2}, ${margin.top})`)
         .call(y_axis)
-    
-    //legend
-    //graph.append("circle").attr("cx", width-100).attr("cy", 30).attr("r", 6).style("fill", "#44597E")
-    //graph.append("circle").attr("cx", width-100).attr("cy", 60).attr("r", 6).style("fill", "#647491")
-    //graph.append("text").attr("x", width-90).attr("y", 35).text("national").style("font-size", "15px").attr("alignment-baseline","middle").attr('font-family', "sans-serif")
-    //graph.append("text").attr("x", width-90).attr("y", 65).text("international").style("font-size", "15px").attr("alignment-baseline","middle").attr('font-family', "sans-serif")
-    
-    //sources
-    //graph.append("text").attr("x", width-280).attr("y", chart_height-20).text("Source: [Diaz, 2020]").style("font-size", "15px").attr("alignment-baseline","middle").attr('font-family', "sans-serif")
-    //graph.append("text").attr("x", width-280).attr("y", chart_height-5).text("Dataset : RTS archives v3 (broadcast)").style("font-size", "15px").attr("alignment-baseline","middle").attr('font-family', "sans-serif")
-    //graph.append("rect").attr('height', 1).attr('width', width).style('fill', '#647491').attr("x", margin.left).attr("y", chart_height-60)
-})
+    })

@@ -20,34 +20,5 @@ router.get('/', synth.show_insight_array, synth.space_insight_array, (req, res, 
     international_count: req.get_space_by_name.international_count  
   })
 })
-//router.get('/', function(req, res, next){ 
-//  location_controller.test1
-//    .then((data)=>{
-//      req.data = data
-//      next()
-//      })
-//  }, function(req, res, next){
-//    location_controller.test2
-//    .then((data)=>{
-//      res.render('viz', {
-//        title: req.data,
-//        title2: data
-//      });
-//    })
-//  })
-
-// router.get('/', function(req, res, next){ 
-//   location_controller.test1
-//     .then((data)=>{
-//       // res.render('viz', {title: data});
-//       location_controller.test2
-//         .then((data2)=>{
-//             res.render('viz', {
-//               title: data,
-//               title2: data2
-//             });
-//           })
-//       })
-//   })
 
 module.exports = router;
